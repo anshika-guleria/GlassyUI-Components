@@ -78,9 +78,9 @@ const InputDetailPage: React.FC = () => {
       <button
         onClick={() => copyToClipboard(text, codeKey)}
         className={`
-          group absolute top-3 right-3
-          flex items-center gap-2
-          px-3 py-2
+          group absolute top-2 right-3
+          flex items-center gap-1
+          px-2 py-1
           rounded-xl
           border
           backdrop-blur-xl
@@ -116,9 +116,9 @@ const InputDetailPage: React.FC = () => {
           >
             {/* ONLY CHANGE: thicker arrow/tick feel */}
             {copied ? (
-              <Check size={18} strokeWidth={3.4} />
+              <Check size={18} strokeWidth={2.4} />
             ) : (
-              <Copy size={18} strokeWidth={3.4} />
+              <Copy size={18} strokeWidth={2.4} />
             )}
           </span>
 
@@ -301,11 +301,15 @@ const InputDetailPage: React.FC = () => {
 
             <div className='mt-8'>
               <h4 className='text-xl font-semibold mb-4'>Generated Code</h4>
-              <pre className='bg-gray-800 text-white p-4 rounded-lg overflow-x-auto'>
-                {customCode}
-              </pre>
 
-              <CopyButton text={customCode} codeKey='customStyling' />
+              <div className='relative'>
+                {/* COPY BUTTON OVERLAY */}
+                <CopyButton text={customCode} codeKey='customStyling' />
+
+                <pre className='bg-gray-800 text-white p-4 pt-12 rounded-lg overflow-x-auto'>
+                  {customCode}
+                </pre>
+              </div>
             </div>
           </div>
         </div>
